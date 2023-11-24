@@ -2,15 +2,31 @@
 <html lang="pl">
 <head>
     <title>CineMatrix</title>
-    <meta charset="utf-8">
-    <link rel="shortcut icon" href="grafika/ikona.ico" type="image/x-icon">
-    <link rel="stylesheet" href="styl.css">
+    <meta charset="UTF-8">
+    <link rel="icon" href="images/icon.ico">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/script.js"></script>
 </head>
 <body>
-    <div id="baner">
-        <img src="grafika/logo.png" alt="logo" id="logo">
-        <button type="button" id="menu">Menu</button>
-        <input type="text" id="szukanie" placeholder="Szukaj...">
-    </div>
+    <section>
+        <header class="header">
+            <a href="../">
+                <img src="images/logo.png" alt="logo">
+            </a>
+            <nav class="menu">
+                <ul>
+                    <li><a href="#">Filmy</a></li>
+                    <li><a href="#">Seriale</a></li>
+                    <li><a href="#">Aktorzy</a></li>
+                    <li><a href="#">Reżyserzy</a></li>
+                </ul>
+            </nav>
+            <button>Zaloguj się</button>
+        </header>
+        <div id="baner">
+            <button type="button" id="menu">Menu</button>
+            <input type="text" id="szukanie" placeholder="Szukaj...">
+        </div>
+    </section>
 </body>
 </html>
