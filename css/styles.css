@@ -63,7 +63,7 @@ article .popular {
     color: #EDEADE;
     text-transform: uppercase;
     margin-top: 50px;
-    padding: 30px 20%;
+    padding: 30px 15%;
 }
 
 article h3 {
@@ -84,6 +84,7 @@ article .movies {
 article .movie img {
     height: 300px;
     width: 200px;
+    border-radius: 10px;
 }
 
 article span {
@@ -92,10 +93,7 @@ article span {
     justify-content: center;
 }
 
-
-
-#baner{
-    background-color: #121212;
+.search{
     width: 100%;
     height: 80px;
     display: flex;
@@ -103,22 +101,25 @@ article span {
     justify-content: center;
 }
 
-#menu{
-    width: 81px;
-    height: 27px;
-    background-color: #121212;
-    color: white;
-    margin-left: 20px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-#menu:hover{
-    background-color: #CCCCCC;
-}
-#szukanie{
+.search input {
     background-color: white;
+    height: 50px;
     width: 400px;
     margin-left: 20px;
-    background-image: url('../images/lupa.png');
+    font-size: 20px;
+    padding: 20px;
+    border-radius: 20px 0px 0px 20px;
+    border: 4px solid #FFBF00;
+}
+
+
+select {
+    text-align: center;
+    height: 50px;
+    width: 120px;
+    border: 2px solid #FFBF00;
+    background-color: #FFBF00;
+    font-size: 15px; 
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 0px 7px 7px 0px;
 }
