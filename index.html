@@ -9,24 +9,49 @@
 </head>
 <body>
     <section>
-        <header class="header">
+        <header>
             <a href="../">
                 <img src="images/logo.png" alt="logo">
             </a>
-            <nav class="menu">
+            <nav>
                 <ul>
-                    <li><a href="#" class="selected">Główna</a></li>
-                    <li><a href="#">Filmy</a></li>
+                    <li><a href="#" class="selected">Strona główna</a></li>
+                    <li><a href="#">Statystyki</a></li>
                     <li><a href="#">Seriale</a></li>
                     <li><a href="#">Rankingi</a></li>
                 </ul>
             </nav>
-            <button>Zaloguj się</button>
+            <button>Dodaj film</button>
         </header>
-        <div id="baner">
-            <button type="button" id="menu">Menu</button>
-            <input type="text" id="szukanie" placeholder="Szukaj...">
-        </div>
+        <article>
+            <section class="popular">
+                <h1>Filmowe hity</h1>
+                <section class="movies">
+                    <section class="movie">
+                        <img src="images/posters/fightclub.jpg" alt="Fight Club">
+                        <h3>Fight Club</h3>
+                    </section>
+                    <section class="movie">
+                        <img src="images/posters/oppenheimer.jpg" alt="Oppenheimer">
+                        <h3>Oppenheimer</h3>
+                    </section>
+                    <section class="movie">
+                        <img src="images/posters/interstellar.jpg" alt="Interstellar">
+                        <h3>Interstellar</h3>
+                    </section>
+                    <section class="movie">
+                        <img src="images/posters/inception.jpg" alt="Inception">
+                        <h3>Incepcja</h3>
+                    </section>
+                </section>
+            </section>
+            <section class="search">
+                <div id="baner">
+                    <button type="button" id="menu">Menu</button>
+                    <input type="text" id="szukanie" placeholder="Szukaj...">
+                </div>
+            </section>
+        </article>
     </section>
 </body>
 </html>

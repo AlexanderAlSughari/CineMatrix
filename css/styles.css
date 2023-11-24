@@ -9,16 +9,16 @@
 
 /* ---------- Header ---------- */
 
-.header {
+header {
     display: flex;
     justify-content: space-around;
     align-items: center;
     padding: 30px 10%;
 }
 
-.header button {
-    font-size: 18px;
+header button {
     font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
     background: #FFBF00;
     padding: 9px 25px;
     border: none;
@@ -27,33 +27,66 @@
     cursor: pointer;
 }
 
-.header img          {height: 75px;}
-.header button:hover {background-color: #F28C28;}
+header img {height: 75px;}
+header button:hover {background-color: #F28C28;}
 
 /* ---------- Navigation ---------- */
 
-.menu li {
+nav li {
     display: inline-block;
-    padding: 0px 20px;
+    padding: 0 20px;
 }
 
-.menu a {
+nav a {
     transition: all 0.3s ease 0s;
     text-transform: uppercase;
 }
 
-.menu li, .menu a {
+nav li, nav a {
     font-family: 'Montserrat', sans-serif;
     font-size: 20px;
     color: #EDEADE;
     text-decoration: none;
 }
 
-.menu ul        {list-style: none;}
-.menu a:hover   {color: #FFBF00;}
-.menu .selected {color: #FFBF00;}
+nav ul {list-style: none;}
+nav a:hover, nav .selected {color: #FFBF00;}
 
 /* ---------- Main ---------- */
+
+article .popular {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    color: #EDEADE;
+    text-transform: uppercase;
+    margin-top: 50px;
+    padding: 100px;
+}
+
+article h3 {
+    font-size: 15px;
+    text-align: center;
+}
+
+article h1 {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+article .movies {
+    display: flex;
+    justify-content: space-around;
+}
+
+article .movie img {
+    height: 300px;
+    width: 200px;
+}
+
+
 
 #baner{
     background-color: #121212;
