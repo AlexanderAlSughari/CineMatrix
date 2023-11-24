@@ -86,6 +86,12 @@ article .movie img {
     width: 200px;
 }
 
+article span {
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+}
+
 
 
 #baner{
