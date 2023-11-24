@@ -54,31 +54,20 @@ nav a:hover, nav .selected {color: #FFBF00;}
 
 /* ---------- Main ---------- */
 
-article .popular {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+article {
     font-family: 'Montserrat', sans-serif;
     font-size: 30px;
-    color: #EDEADE;
     text-transform: uppercase;
-    margin-top: 50px;
-    padding: 30px 15%;
-}
-
-article h3 {
-    font-size: 15px;
     text-align: center;
-}
-
-article h1 {
-    text-align: center;
-    margin-bottom: 50px;
+    color: #EDEADE;
+    padding: 40px 0;
 }
 
 article .movies {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 30px 15%;
 }
 
 article .movie img {
@@ -87,39 +76,40 @@ article .movie img {
     border-radius: 10px;
 }
 
-article span {
+.movie {transition: all 0.3s ease 0s;}
+.movie:hover {transform: scale(1.1);}
+
+article h3, article span {
     font-size: 14px;
     display: flex;
     justify-content: center;
 }
 
 .search{
-    width: 100%;
     height: 80px;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    justify-self: center;
 }
 
 .search input {
-    background-color: white;
+    background-color: #FCF5E5;
     height: 50px;
     width: 400px;
-    margin-left: 20px;
     font-size: 20px;
     padding: 20px;
-    border-radius: 20px 0px 0px 20px;
     border: 4px solid #FFBF00;
+    border-radius: 20px 0px 0px 20px;
 }
 
-
 select {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px; 
     text-align: center;
     height: 50px;
     width: 120px;
-    border: 2px solid #FFBF00;
     background-color: #FFBF00;
-    font-size: 15px; 
-    font-family: 'Montserrat', sans-serif;
+    border: 2px solid #FFBF00;
     border-radius: 0px 7px 7px 0px;
 }
