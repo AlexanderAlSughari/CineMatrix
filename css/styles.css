@@ -117,3 +117,30 @@ select {
     border: 2px solid #FFBF00;
     border-radius: 0px 7px 7px 0px;
 }
+
+.info {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    width: 420px;
+    font-size: 20px;
+    padding: 75px 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.info section {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.info input {
+    height: 24px;
+    border: 2px solid #FFBF00;
+    border-radius: 5px;
+    background-color: #252525;
+    margin: 0 20px;
+    color: #EDEADE;
+    padding: 5px;
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    <title>CineMatrix</title>
+    <meta charset="UTF-8">
+    <link rel="icon" href="images/icon.ico">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/fontello.css">
+    <script src="js/script.js"></script>
+</head>
+<body>
+    <section>
+        <header>
+            <a href="../">
+                <img src="images/logo.png" alt="logo">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="../">Strona główna</a></li>
+                    <li><a href="#">Moje filmy</a></li>
+                    <li><a href="#">Statystyki</a></li>
+                    <li><a href="#">Seriale</a></li>
+                </ul>
+            </nav>
+            <button onclick="addMovie()">Dodaj film</button>
+        </header>
+        <article class="add-new-movie">
+            <h1>Dodaj nowy film</i></h1>
+            <section class="info">
+                <section>
+                    Plakat:<input type="text" id="poster_path">
+                </section>
+                <section>
+                    Tytuł:<input type="text" id="title">
+                </section>
+                <section>
+                    Data premiery:<input type="text" id="release_date">
+                </section>
+                <section>
+                    Długość:<input type="text" id="runtime">
+                </section>
+                <section>
+                    Gatunki:<input type="text" id="genres">
+                </section>
+                <section>
+                    Krótki opis:<input type="text" id="overview">
+                </section>
+                <section>
+                    Kraj produkcji:<input type="text" id="production_countries">
+                </section>
+                <section>
+                    Budżet:<input type="text" id="budget">
+                </section>
+            </article>
+    </section>
+</body>
+</html>
