@@ -67,12 +67,16 @@ article .movies {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    padding: 30px 15%;
+    padding: 30px 20%;
+}
+
+.movie {
+    width: 200px;
+    margin: 10px 0;
 }
 
 article .movie img {
     height: 300px;
-    width: 200px;
     border-radius: 10px;
 }
 

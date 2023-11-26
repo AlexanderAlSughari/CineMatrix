@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="pl-PL">
 <head>
     <title>CineMatrix</title>
     <meta charset="UTF-8">
     <link rel="icon" href="images/icon.ico">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/fontello.css">
     <script src="js/script.js"></script>
 </head>
 <body>
@@ -15,13 +16,13 @@
             </a>
             <nav>
                 <ul>
-                    <li><a href="#" class="selected">Strona główna</a></li>
+                    <li><a href="../" class="selected">Strona główna</a></li>
+                    <li><a href="#">Gatunki</a></li>
                     <li><a href="#">Statystyki</a></li>
                     <li><a href="#">Seriale</a></li>
-                    <li><a href="#">Rankingi</a></li>
                 </ul>
             </nav>
-            <button>Dodaj film</button>
+            <button onclick="addMovie()">Dodaj film</button>
         </header>
         <section class="search">
             <input type="text" placeholder="Szukaj...">
@@ -34,34 +35,8 @@
         </section>
         <article>
             <section class="popular">
-                <h1>Filmowe hity</h1>
-                <section class="movies">
-                    <section class="movie">
-                        <img src="images/posters/fightclub.jpg" alt="Fight Club">
-                        <h3>Fight Club</h3>
-                        <span>1999</span>
-                    </section>
-                    <section class="movie">
-                        <img src="images/posters/oppenheimer.jpg" alt="Oppenheimer">
-                        <h3>Oppenheimer</h3>
-                        <span>2023</span>
-                    </section>
-                    <section class="movie">
-                        <img src="images/posters/interstellar.jpg" alt="Interstellar">
-                        <h3>Interstellar</h3>
-                        <span>2014</span>
-                    </section>
-                    <section class="movie">
-                        <img src="images/posters/inception.jpg" alt="Inception">
-                        <h3>Incepcja</h3>
-                        <span>2010</span>
-                    </section>
-                    <section class="movie">
-                        <img src="images/posters/darkknight.jpg" alt="Dark Knight">
-                        <h3>Mroczny Rycerz</h3>
-                        <span>2008</span>
-                    </section>
-                </section>
+                <h1>Filmowe hity <i class="icon-chart"></i></h1>
+                <section class="movies"></section>
             </section>
         </article>
     </section>
