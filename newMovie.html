@@ -6,7 +6,8 @@
     <link rel="icon" href="images/icon.ico">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/fontello.css">
-    <script src="js/script.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/addMovie.js"></script>
 </head>
 <body>
     <section>
@@ -28,29 +29,38 @@
             <h1>Dodaj nowy film</i></h1>
             <section class="info">
                 <section>
-                    Plakat:<input type="text" id="poster_path">
+                    Plakat:<input type="file" id="poster_path">
                 </section>
                 <section>
                     Tytuł:<input type="text" id="title">
                 </section>
                 <section>
-                    Data premiery:<input type="text" id="release_date">
+                    Data premiery:<input type="date" id="release_date">
                 </section>
                 <section>
-                    Długość:<input type="text" id="runtime">
+                    Długość:<input type="time" id="runtime">
                 </section>
                 <section>
                     Gatunki:<input type="text" id="genres">
                 </section>
                 <section>
-                    Krótki opis:<input type="text" id="overview">
+                    Krótki opis:<input type="textarea" id="overview">
                 </section>
                 <section>
-                    Kraj produkcji:<input type="text" id="production_countries">
+                    Kraj produkcji: 
+                    <select id="production_countries">
+                        <option value="Kraj">Kraj</option>
+                        <option value="Polska">Polska</option>
+                        <option value="Stany Zjednoczone">Stany Zjednoczone</option>
+                        <option value="Niemcy">Niemcy</option>
+                        <option value="Włochy">Włochy</option>
+                        <option value="Hiszpania">Hiszpania</option>
+                    </select>
                 </section>
                 <section>
                     Budżet:<input type="text" id="budget">
                 </section>
+                <button onclick="addMovie()">Zapisz film</button>
             </article>
     </section>
 </body>

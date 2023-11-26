@@ -16,7 +16,7 @@ header {
     padding: 30px 10%;
 }
 
-header button {
+header button, .info button {
     font-family: 'Montserrat', sans-serif;
     font-size: 18px;
     background: #FFBF00;
@@ -107,7 +107,7 @@ article h3, article span {
     border-radius: 20px 0px 0px 20px;
 }
 
-select {
+.search select {
     font-family: 'Montserrat', sans-serif;
     font-size: 15px; 
     text-align: center;
@@ -122,7 +122,7 @@ select {
     display: flex;
     flex-direction: column;
     align-items: end;
-    width: 420px;
+    width: 450px;
     font-size: 20px;
     padding: 75px 0;
     margin-left: auto;
@@ -131,11 +131,13 @@ select {
 
 .info section {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
     padding: 10px 0;
+    width: 450px;
 }
 
-.info input {
+.info input, .info select {
     height: 24px;
     border: 2px solid #FFBF00;
     border-radius: 5px;
@@ -143,4 +145,10 @@ select {
     margin: 0 20px;
     color: #EDEADE;
     padding: 5px;
+    width: 200px;
+    height: 30px;
+}
+
+.info button {
+    margin: 50px auto;
 }
