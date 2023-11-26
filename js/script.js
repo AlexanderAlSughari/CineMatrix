@@ -35,4 +35,6 @@ const getTheMostPopularMovies = () => {
     .catch(err => console.error(err));
 }
 
+const addMovie = () => {window.location.href = '../newmovie.html';}
+
 document.onload = getTheMostPopularMovies();
