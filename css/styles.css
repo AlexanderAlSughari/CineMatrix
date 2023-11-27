@@ -115,7 +115,18 @@ article h3, article span {
     width: 120px;
     background-color: #FFBF00;
     border: 2px solid #FFBF00;
-    border-radius: 0px 7px 7px 0px;
+}
+
+.search button {
+    height: 50px;
+    font-size: 20px;
+    border: 4px solid #FFBF00;
+    background-color: #FFBF00;
+    border-radius: 0px 20px 20px 0px;
+}
+
+.search button i {
+    background-color: #FFBF00;
 }
 
 .info {
