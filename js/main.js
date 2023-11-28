@@ -18,7 +18,7 @@ let film_template = {
     trailer: ''
 };
 
-const newMovie = () => {window.location.href = '../newMovie.html';}
+const newMovie = () => {window.location.href = '../pages/newMovie.html';}
 
 const options = {
     method: 'GET',
