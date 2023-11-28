@@ -3,11 +3,7 @@ const searchMoviesWithThatName = (keyword) => {
     document.querySelector('.movies').innerHTML = "";
 
     fetch('https://api.themoviedb.org/3/search/movie?query='+keyword+'&include_adult=false&language=pl-PL&page=1', options)
-    .then((response) => {
-        if(!response.ok)
-            throw new Error("Network response was not OK");
-        return response.json();
-    })
+    .then(response => response.json())
     .then((myJson) => {
         let moviesArray = myJson.results;
         const genre = parseInt(document.getElementById('genres').value);
@@ -25,20 +21,7 @@ const searchMoviesWithThatName = (keyword) => {
         if(moviesArray.length == 0)
             document.querySelector('.movies').innerHTML = "brak wyników :(";
         
-        moviesArray.forEach(element => {
-            let movieSection = document.createElement('section');
-            movieSection.classList.add('movie');
-
-            let moviePoster = document.createElement('img');
-            let movieTitle = document.createElement('h3');
-            let movieYear = document.createElement('span');
-
-            moviePoster.src = path + element.poster_path;
-            movieTitle.innerHTML = element.title;
-            movieYear.innerHTML = (element.release_date).split("-")[0];
-
-            document.querySelector('.movies').appendChild(movieSection).append(moviePoster, movieTitle, movieYear);
-        });
+        getGeneratedMovies(moviesArray);
     })
     .catch(err => console.error(err));
 }
