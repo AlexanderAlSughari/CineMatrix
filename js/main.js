@@ -90,7 +90,13 @@ const getGeneratedMovies = (moviesArray) => {
     moviesArray.forEach(element => {
         let movieSection = document.createElement('section');
         movieSection.classList.add('movie');
-        movieSection.setAttribute("onclick", "getDetails("+element.id+")");
+    
+        let movieLink = document.createElement('a');
+        movieLink.setAttribute("href", "pages/information.html?id=" + element.id);
+        movieLink.setAttribute("target", "_blank");
+        movieLink.addEventListener("click", (event) => {
+            event.stopPropagation();
+        });
     
         let moviePoster = document.createElement('img');
         let movieTitle = document.createElement('h3');
@@ -100,7 +106,11 @@ const getGeneratedMovies = (moviesArray) => {
         movieTitle.innerHTML = element.title;
         movieYear.innerHTML = (element.release_date).split("-")[0];
     
-        document.querySelector('.movies').appendChild(movieSection).append(moviePoster, movieTitle, movieYear);
+        movieLink.append(moviePoster, movieTitle, movieYear);
+        movieSection.appendChild(movieLink);
+    
+        document.querySelector('.movies').appendChild(movieSection);
     });
 }
-const getTrailer = (list) => list.filter(list => list.name == 'Official Trailer' || list.name == 'Official Teaser');
+const getTrailer = (list) => list.filter(list => list.name.includes('Official Trailer') || list.name.includes('Official'));
+
