@@ -12,24 +12,21 @@
 <body>
     <section>
         <header>
-            <a href="../">
+            <a href="../index.html">
                 <img src="../images/logo.png" alt="logo">
             </a>
             <nav>
                 <ul>
-                    <li><a href="../">Strona główna</a></li>
-                    <li><a href="#">Moje filmy</a></li>
-                    <li><a href="#">Statystyki</a></li>
+                    <li><a href="../index.html">Strona główna</a></li>
+                    <li><a href="myMovies.html">Moje filmy</a></li>
+                    <li><a href="statistics.html">Statystyki</a></li>
                 </ul>
             </nav>
-            <button onclick="addMovie()">Dodaj film</button>
+            <button onclick="newMovie()">Dodaj film</button>
         </header>
         <article class="add-new-movie">
             <h1>Dodaj nowy film</i></h1>
             <section class="info">
-                <section>
-                    Plakat:<input type="file" id="poster_path">
-                </section>
                 <section>
                     Tytuł:<input type="text" id="title">
                 </section>
@@ -45,22 +42,9 @@
                 <section>
                     Krótki opis:<input type="textarea" id="overview">
                 </section>
-                <section>
-                    Kraj produkcji: 
-                    <select id="production_countries">
-                        <option value="Kraj">Kraj</option>
-                        <option value="Polska">Polska</option>
-                        <option value="Stany Zjednoczone">Stany Zjednoczone</option>
-                        <option value="Niemcy">Niemcy</option>
-                        <option value="Włochy">Włochy</option>
-                        <option value="Hiszpania">Hiszpania</option>
-                    </select>
-                </section>
-                <section>
-                    Budżet:<input type="text" id="budget">
-                </section>
                 <button onclick="addMovie()">Zapisz film</button>
-            </article>
+            </section>
+        </article>
     </section>
 </body>
 </html>

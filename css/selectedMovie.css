@@ -1,0 +1,96 @@
+.details {
+    margin: 50px auto;
+    height: auto;
+    max-width: 900px;
+    color: #EDEADE;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.poster, .youtube {
+    height: auto;
+    width: auto;
+}
+
+.mainInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.mainInfo *, .youtube {   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    padding: 10px 0;
+}
+
+.general {
+    display: flex;
+    justify-content: space-between;
+}
+
+.poster_image {
+    height: 600px;
+    width: 400px;
+    border-radius: 20px;
+}
+
+.nextTo {
+    display: flex;
+    justify-content: center;
+}
+
+.nextTo * {margin: 0px 20px;}
+
+.actors {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 450px;
+}
+
+.title {
+    margin: 0 auto;
+    max-width: 400px;
+    text-align: center;
+}
+
+.actors * {
+    border: 2px solid white;
+    border-radius: 20px;
+    padding: 15px;
+    margin: 5px 5px;
+}
+
+.plot {margin: 50px}
+.overview {text-align: justify}
+
+.title {font-size: 35px}
+.rating, .overview {font-size: 20px}
+i {color: #FFBF00}
+
+.gallery{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.gallery img {width: 200px}
+a {color: #EDEADE}
+.youtube {margin: 20px 0;}
+
+@media only screen and (max-width: 1000px) {
+    .poster_image {
+        height: 400px;
+        width: 266px;
+        border-radius: 10px;
+        transition: all 0.3s ease 0s;
+    }
+
+    .poster {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        justify-self: center;
+    }
+}

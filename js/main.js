@@ -4,20 +4,6 @@ const tmdb_path = 'https://www.themoviedb.org/movie/';
 const key_ = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmOTc1Njk0YjJiNTQwMzlhNDZjNzljMmJkODkxZTA2NyIsInN1YiI6IjY1NWZhNWM5ODgwNTUxMDExZDMzNTljNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.rmkzxGJzMgVov93DK62z2yqiW6Y_Q9-ocpab_ehkg8A';
 let movies = [];
 
-let film_template = {
-    title: '',
-    poster: '',
-    overview: '',
-    release_date: '',
-    genres: '',
-    director: '',
-    actors: '',
-    tmbd: '',
-    rating: '',
-    galery: '',
-    trailer: ''
-};
-
 const newMovie = () => {window.location.href = '../pages/newMovie.html';}
 
 const options = {
@@ -29,51 +15,60 @@ const options = {
 };
 
 const getDetails = (id) => {
-    let film = film_template;
     fetch(fetch_path+id+'?language=pl-PL', options)
     .then(response => response.json())
     .then((myJson) => {
         let temp = myJson;
-        film.title = temp.title;
-        film.poster = path + temp.poster_path;
-        film.overview = temp.overview;
-        film.release_date = temp.release_date;
-        film.genres = temp.genres;
-        film.tmbd = tmdb_path+id;
+        let genres = [];
+        setCookie("title", temp.title, 365);
+        setCookie("poster", path + temp.poster_path, 365);
+        setCookie("overview", temp.overview, 365);
+        setCookie("release_date", temp.release_date, 365);
+        setCookie("runtime", temp.runtime, 365);
+        setCookie("tmdb", tmdb_path+id, 365);
+        for(let i = 0; i < temp.genres.length; i++) {
+            genres.push(temp.genres[i].name);
+        }
+        setCookie("genres", genres , 365);
     })
     .catch(err => console.error(err));
 
     fetch(fetch_path+id+'/credits?language=en-US', options)
     .then(response => response.json())
     .then((myJson) => {
-        film.actors = [];
+        let temp = myJson;
+        let actors = [];
         for(let i = 0; i < 5; i++)
-            film.actors.push(myJson.cast[i].name);
+            actors.push(temp.cast[i].name);
+        for(let i = 0; i < 1; i++)
+            director = getDirector(temp.crew);
+        setCookie("actors", actors, 365);
+        setCookie("director", director[0].name, 365);
     })
     .catch(err => console.error(err));
 
     fetch(fetch_path+id+'/images', options)
     .then(response => response.json())
     .then((myJson) => {
-        film.galery = [];
+        let gallery = [];
         myJson.backdrops.forEach(element => {
-            film.galery.push(element.file_path);
+            gallery.push(element.file_path);
         });
+        setCookie("gallery", gallery, 365);
     })
     .catch(err => console.error(err));
 
     fetch(fetch_path+id+'/reviews?language=en-US', options)
     .then(response => response.json())
     .then((myJson) => {
-        film.rating = [];
-        let ratingScore = 0;
+        let score = 0;
         let ratingCount = myJson.results.length;
         myJson.results.forEach(element => {
-            ratingScore += element.author_details.rating;
+            score += element.author_details.rating;
         });
-        ratingScore = parseFloat((ratingScore/ratingCount).toFixed(2));
-        film.rating.push(ratingScore);
-        film.rating.push(ratingCount);
+        score = (score == 0) ? score : parseFloat((score/ratingCount).toFixed(2));
+        setCookie("ratingScore", score, 365);
+        setCookie("ratingVotes", ratingCount, 365);
     })
     .catch(err => console.error(err));
 
@@ -81,7 +76,8 @@ const getDetails = (id) => {
     .then(response => response.json())
     .then((myJson) => {
         let links = getTrailer(myJson.results);
-        film.trailer = 'https://www.youtube.com/watch?v='+links[0].key;
+        setCookie("trailer", 'https://www.youtube.com/embed/'+links[0].key, 365);
+        window.location.href = '../pages/info.html?='+getCookie('title')+''
     })
     .catch(err => console.error(err));
 }
@@ -90,13 +86,7 @@ const getGeneratedMovies = (moviesArray) => {
     moviesArray.forEach(element => {
         let movieSection = document.createElement('section');
         movieSection.classList.add('movie');
-    
-        let movieLink = document.createElement('a');
-        movieLink.setAttribute("href", "pages/information.html?id=" + element.id);
-        movieLink.setAttribute("target", "_blank");
-        movieLink.addEventListener("click", (event) => {
-            event.stopPropagation();
-        });
+        movieSection.setAttribute("onclick", "getDetails("+element.id+")");
     
         let moviePoster = document.createElement('img');
         let movieTitle = document.createElement('h3');
@@ -106,11 +96,43 @@ const getGeneratedMovies = (moviesArray) => {
         movieTitle.innerHTML = element.title;
         movieYear.innerHTML = (element.release_date).split("-")[0];
     
-        movieLink.append(moviePoster, movieTitle, movieYear);
-        movieSection.appendChild(movieLink);
-    
-        document.querySelector('.movies').appendChild(movieSection);
+        document.querySelector('.movies').appendChild(movieSection).append(moviePoster, movieTitle, movieYear);
     });
 }
 const getTrailer = (list) => list.filter(list => list.name.includes('Official Trailer') || list.name.includes('Official'));
+const getDirector = (list) => list.filter(list => list.job == 'Director');
 
+
+// https://www.w3schools.com/js/js_cookies.asp
+function setCookie(cname, cvalue, exdays) {
+    const d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    let expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+    let name = cname + "=";
+    let ca = document.cookie.split(';');
+    for(let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+function deleteAllCookies() {
+    const cookies = document.cookie.split(";");
+
+    for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i];
+        const eqPos = cookie.indexOf("=");
+        const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    }
+}
