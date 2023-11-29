@@ -11,7 +11,11 @@ const showMovie = () => {
     printArrayValues(getCookie("genres").split(','), 'genres');
     printArrayValues(getCookie("actors").split(','), 'actors');
     printArrayValues(getCookie("gallery").split(','), 'gallery');
-    deleteAllCookies();
+    let cookies = ['title', 'poster', 'release_date', 'ratingScore', 'ratingVotes', 'director', 'runtime', 'overview', 'tmdb', 'trailer', 'genres', 'actors','gallery'];
+    cookies.forEach(element => {
+        console.log(getCookie(element));
+        document.cookie = ""+cookies[element]+"=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    });
 }
 
 const printArrayValues = (list, name) => {
