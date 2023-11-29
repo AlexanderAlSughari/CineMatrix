@@ -18,9 +18,9 @@
             </a>
             <nav>
                 <ul>
-                    <li><a href="../" class="selected">Strona główna</a></li>
-                    <li><a href="../pages/myMovies.html">Moje filmy</a></li>
-                    <li><a href="../pages/statistics.html">Statystyki</a></li>
+                    <li><a href="../index.html">Strona główna</a></li>
+                    <li><a href="myMovies.html">Moje filmy</a></li>
+                    <li><a href="statistics.html">Statystyki</a></li>
                 </ul>
             </nav>
             <button onclick="newMovie()">Dodaj film</button>
@@ -49,12 +49,14 @@
         </section>
         <article>
             <section>
-                <h1 class="title">Najwyżej oceniane Filmy <i class="icon-chart"></i></h1>
-                <section class="movies"></section>
-            </section>
-            <section>
-                <h1 class="title">Najniżej oceniane Filmy <i class="icon-chart"></i></h1>
-                <section class="movies1"></section>
+                <h1 class="title">Najbardziej popularne filmy <i class="icon-chart"></i></h1>
+                <section class="movies-popularity movies"></section>
+                <h1 class="title">Najbardziej popularne seriale <i class="icon-chart"></i></h1>
+                <section class="series-popularity movies"></section>
+                <h1 class="title">Najmniej popularne filmy <i class="icon-chart"></i></h1>
+                <section class="movies-unpopularity movies"></section>
+                <h1 class="title">Najmniej popularne seriale <i class="icon-chart"></i></h1>
+                <section class="series-unpopularity movies"></section>
             </section>
         </article>
     </section>
