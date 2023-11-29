@@ -7,7 +7,23 @@
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/fontello.css">
     <script src="../js/main.js"></script>
-    <script src="../js/addMovie.js"></script>
+
+    <style>
+        .my {
+            margin-left: auto;
+            margin-right: auto;
+            width: 400px;
+            text-align: center;
+            color: #EDEADE;
+        }
+
+        .my * {
+            display: flex;
+            flex-direction: column;
+            font-size: 30px;
+            font-family: 'Montserrat', sans-serif;
+        }
+    </style>
 </head>
 <body>
     <section>
@@ -24,9 +40,9 @@
             </nav>
             <button onclick="newMovie()">Dodaj film</button>
         </header>
-        <section class="my-movies">
-            <h2 class="title"></h2>
-        </section>
+        <section class="movies my"></section>
     </section>
 </body>
 </html>
+<script src="../js/addMovie.js"></script>
+<script src="../js/myMovies.js"></script>
