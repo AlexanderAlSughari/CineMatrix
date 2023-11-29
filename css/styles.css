@@ -70,6 +70,13 @@ article .movies {
     padding: 30px 20%;
 }
 
+article .movies1 {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 30px 20%;
+}
+
 .movie {
     width: 200px;
     margin: 10px 0;
