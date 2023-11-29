@@ -165,7 +165,7 @@ article h3, article span {
     width: 450px;
 }
 
-.info input, .info select {
+.info input, .info select, .addRating input {
     height: 24px;
     border: 2px solid #FFBF00;
     border-radius: 5px;

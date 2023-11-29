@@ -20,6 +20,7 @@ const getDetails = (id) => {
     .then((myJson) => {
         let temp = myJson;
         let genres = [];
+        setCookie("id", temp.id, 365);
         setCookie("title", temp.title, 365);
         setCookie("poster", path + temp.poster_path, 365);
         setCookie("overview", temp.overview, 365);

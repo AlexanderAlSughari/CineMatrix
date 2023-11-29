@@ -8,6 +8,7 @@ fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', opti
         array.forEach(element => {
             let movieSection = document.createElement('section');
             movieSection.classList.add('movie');
+            movieSection.setAttribute("onclick", "getDetails("+element.id+")");
 
             let moviePoster = document.createElement('img');
             moviePoster.src = path + element.poster_path;
@@ -88,7 +89,7 @@ fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', opti
             number.innerHTML = '#' +  i++;
 
             let movieTitle = document.createElement('h3');
-            movieTitle.innerHTML = element.name;
+            movieTitle.innerHTML = element.title;
 
             let movieRating = document.createElement('span');
             movieRating.innerHTML = 'Popularnność: ' + element.popularity;

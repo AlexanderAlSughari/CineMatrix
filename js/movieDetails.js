@@ -11,7 +11,11 @@ const showMovie = () => {
     printArrayValues(getCookie("genres").split(','), 'genres');
     printArrayValues(getCookie("actors").split(','), 'actors');
     printArrayValues(getCookie("gallery").split(','), 'gallery');
-    let cookies = ['title', 'poster', 'release_date', 'ratingScore', 'ratingVotes', 'director', 'runtime', 'overview', 'tmdb', 'trailer', 'genres', 'actors','gallery'];
+    
+    let buttonSend = document.querySelector('.sender');
+    buttonSend.setAttribute("onclick", "addRating("+getCookie('id')+", myRating.value)");
+    
+    let cookies = ['id', 'title', 'poster', 'release_date', 'ratingScore', 'ratingVotes', 'director', 'runtime', 'overview', 'tmdb', 'trailer', 'genres', 'actors','gallery'];
     cookies.forEach(element => {
         console.log(getCookie(element));
         document.cookie = ""+cookies[element]+"=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
@@ -26,5 +30,23 @@ const printArrayValues = (list, name) => {
         let class_name = (name == 'genres') ? '.genres' : ((name == 'actors') ? '.actors' : '.gallery');
         document.querySelector(class_name).appendChild(element);
     }
+}
+
+const addRating = (id, value) => {
+    let options2 = {
+        method: 'POST',
+        headers: {
+          accept: 'application/json',
+          'Content-Type': 'application/json;charset=utf-8',
+          Authorization: 'Bearer ' + key_
+        },
+        body: '{"value":'+value+'}'
+      };
+      
+      fetch('https://api.themoviedb.org/3/movie/'+id+'/rating', options2)
+        .then(response => response.json())
+        .then(response => console.log(response))
+        .then(alert("Dodano ocenę!"))
+        .catch(err => console.error(err));
 }
 document.onload = showMovie();
